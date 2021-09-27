@@ -1,0 +1,84 @@
+<html>
+  <head>
+    this is heead
+  </head>
+  <body>
+
+  <div class="form-style">
+  <input class="input-field-style" type="text" id="username" name="username" placeholder="Username"> <br/>
+  <input class="input-field-style" type="password" id="password" name="password" placeholder="Password"> <br/>
+  <input type="button" value="Log in" onclick="login()"/>
+  
+</div>
+<script>
+  function login()
+{
+  let xhr = new XMLHttpRequest();
+  username="app_613f27498c905000d771afc0"
+  password = "SmXUhi7yTcqj0s49sB077YM9dm3Ftg1K0bAvuxZAvxaXx-znsHDoL76M-65HUpwAVp6CuH6O4tIVZgmEB2iNKw"
+  url="https://api.smooch.io/v2/apps/613ef0af8e379c00d71aac65/conversations/b111426441aac3127f4abb85/messages"
+  xhr.withCredentials = true;
+  
+
+  xhr.open('GET', url, async, username, password)
+  xhr.setRequestHeader('Content-Type', 'application/json');
+ 
+//xhr.open('GET', '/article/xmlhttprequest/hello.txt', false,);
+  
+  xhr.send()
+  xhr.onload = function(){
+console.log(xhr.response)
+  }
+  
+  
+  
+  
+  /*
+  var user = document.getElementById("username").value;
+  var pass = document.getElementById("password").value;
+  console.log(user);
+  
+
+var request = new XMLHttpRequest();
+username="app_613f27498c905000d771afc0"
+password = "SmXUhi7yTcqj0s49sB077YM9dm3Ftg1K0bAvuxZAvxaXx-znsHDoL76M-65HUpwAVp6CuH6O4tIVZgmEB2iNKw"
+/*
+//user name and password as string to url
+url="https://app_613f27498c905000d771afc0:SmXUhi7yTcqj0s49sB077YM9dm3Ftg1K0bAvuxZAvxaXx-znsHDoL76M-65HUpwAVp6CuH6O4tIVZgmEB2iNKw@api.smooch.io/v2/apps/613ef0af8e379c00d71aac65/conversations/b111426441aac3127f4abb85/messages"
+request.open('GET',url);
+
+*/
+/*
+//cors error
+url="https://api.smooch.io/v2/apps/613ef0af8e379c00d71aac65/conversations/b111426441aac3127f4abb85/messages"
+request.open('GET',url);
+request.setRequestHeader('Authorization', 'Basic [YXBwXzYxM2YyNzQ5OGM5MDUwMDBkNzcxYWZjMDpTbVhVaGk3eVRjcWowczQ5c0IwNzdZTTlkbTNGdGcxSzBiQXZ1eFpBdnhhWHgtem5zSERvTDc2TS02NUhVcHdBVnA2Q3VINk80dElWWmdtRUIyaU5Ldw==]',"Access-Control-Allow-Headers","*" );
+
+*/
+/*
+//getting error of authorization
+username="app_613f27498c905000d771afc0"
+password = "SmXUhi7yTcqj0s49sB077YM9dm3Ftg1K0bAvuxZAvxaXx-znsHDoL76M-65HUpwAVp6CuH6O4tIVZgmEB2iNKw"
+//url="https://api.smooch.io/v2/apps/613ef0af8e379c00d71aac65/conversations/b111426441aac3127f4abb85/messages"
+url = "https://" + username + ":" + password + "@api.smooch.io/v2/apps/613ef0af8e379c00d71aac65/conversations/b111426441aac3127f4abb85/messages"
+request.open('GET',url)
+request.setRequestHeader(
+  "Access-Control-Allow-Headers","*",
+  'Content-Type', 'application/json',
+  //"username","app_613f27498c905000d771afc0",
+	//"password","SmXUhi7yTcqj0s49sB077YM9dm3Ftg1K0bAvuxZAvxaXx-znsHDoL76M-65HUpwAVp6CuH6O4tIVZgmEB2iNKw",
+  //"Authorization","basic" + btoa("app_613f27498c905000d771afc0"+ ":" + "SmXUhi7yTcqj0s49sB077YM9dm3Ftg1K0bAvuxZAvxaXx-znsHDoL76M-65HUpwAVp6CuH6O4tIVZgmEB2iNKw"),
+ 
+  "Content-Type","application/json; charset=utf-8",
+)
+  request.onload=()=>{
+  console.log(request.response);
+}
+request.send();
+
+*/
+}
+</script>
+
+</body>
+</html>

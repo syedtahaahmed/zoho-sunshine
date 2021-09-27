@@ -1,0 +1,146 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div>
+            <label for="input-file">Specify a file:</label><br>
+            <input type="file" id="input-file">
+           </div>
+           <form  name="data_submit" action="php-function-call.php"
+           method="post">>
+           <p><input type="submit" name="submit" value="Submit"/></p>
+    </form>
+           
+           <textarea id="content-target"></textarea>
+
+<script>
+
+document.getElementById('input-file')
+  .addEventListener('change', getFile)
+
+function getFile(event) {
+	const input = event.target
+  if ('files' in input && input.files.length > 0) {
+	  placeFileContent(
+      document.getElementById('content-target'),
+      input.files[0]) 
+      
+  }
+
+}
+
+function placeFileContent(target, file) {
+	readFileContent(file).then(content => {
+  	target.value = content
+   
+    var obj=JSON.parse(content);
+    //console.log(JSON.stringify(obj, null, 2))
+    console.log(obj.Company,"\n",obj.Last_Name,"\n",obj.First_Name,"\n",obj.Email,"\n",obj.State,"\n",obj.Phone,"\n",obj.Description);
+  }).catch(error => console.log(error)) 
+}
+
+function readFileContent(file) {
+	const reader = new FileReader()
+  return new Promise((resolve, reject) => {
+    reader.onload = event => resolve(event.target.result)
+    reader.onerror = error => reject(error)
+    reader.readAsText(file)
+
+  })
+}
+</script>
+<style>
+    label {
+  cursor: pointer;
+}
+
+textarea {
+  width: 400px;
+  height: 150px;
+}
+</style>
+
+
+
+</body>
+
+</html><!--
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>post to php </title>
+  <script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+  <form>
+    <input type="file" id="input-file">
+   <input type="text" id="name" placeholder="enter ur name"><br>
+    <input type="text" id="age" placeholder="age plz"><br>
+    <input type="button" value="submit" onclick="post();">
+  </form>
+  <div id="result"></div>
+  <script type="text/javascript">
+  function post()
+  { document.getElementById('input-file')
+  .addEventListener('change', getFile)
+
+function getFile(event) {
+	const input = event.target
+  if ('files' in input && input.files.length > 0) {
+	  placeFileContent(
+      document.getElementById('content-target'),
+      input.files[0]) 
+  }
+}
+function placeFileContent(target, file) {
+	readFileContent(file).then(content => {
+  	target.value = content
+    var obj=JSON.parse(content);
+    //console.log(JSON.stringify(obj, null, 2))
+    console.log(obj.Company,"\n",obj.Last_Name,"\n",obj.First_Name,"\n",obj.Email,"\n",obj.State,"\n",obj.Phone,"\n",obj.Description);
+    var name=obj.Company.val();
+   // var age=$('#age').val();
+    $.post('validate.php',{postname:name},
+    function(data)
+    {
+
+        $('#result').html(data);
+
+
+    });
+  
+  }).catch(error => console.log(error)) 
+}
+
+function readFileContent(file) {
+	const reader = new FileReader()
+  return new Promise((resolve, reject) => {
+    reader.onload = event => resolve(event.target.result)
+    reader.onerror = error => reject(error)
+    reader.readAsText(file)
+
+  })
+}
+
+
+
+
+
+
+
+
+
+  }
+
+  
+  </script>
+</body>
+</html>-->
+
+
+
+
+
+     
+    
