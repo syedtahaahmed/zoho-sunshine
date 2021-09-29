@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "jquery": "^3.6.0",
-    "request": "^2.88.2",
-    "require": "^0.4.4",
-    "smooch": "^5.3.9"
-  }
-}
